@@ -1,0 +1,10 @@
+.isolatedCard {
+    position: relative;
+    margin: 20px auto;
+    padding: 16px;
+    max-width: 400px; /* Adjust as needed */
+    border: 1px solid #ddd;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: 1px solid red;
+}
