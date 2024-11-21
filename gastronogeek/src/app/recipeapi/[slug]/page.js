@@ -1,6 +1,7 @@
-// src/app/recipes/[slug]/page.js
 import React from 'react';
 import { notFound } from 'next/navigation';
+import RecipeDetailCard from '@/components/CardDetail'; // Assurez-vous que le chemin est correct
+import styles from '@/app/page.module.css'; // Importez vos styles
 
 // Fetching a single recipe by slug
 async function getRecipe(slug) {
@@ -24,14 +25,14 @@ export async function generateStaticParams() {
   let res = await fetch('https://api-gastronogeek.vercel.app/api/recipes/');
   
   if (!res.ok) {
-    throw new Error("Failed to fetch recipes"); // Handle fetch error
+    throw new Error("Failed to fetch recipes");
   }
 
   let recipes = await res.json();
 
   // Return the list of slugs for static generation
   return recipes.map((recipe) => ({
-    slug: recipe.slug, // Ensure slug is used for dynamic routing
+    slug: recipe.slug,
   }));
 }
 
@@ -53,23 +54,9 @@ export default async function Page({ params }) {
   }
 
   return (
-    <article>
-      <h1>{recipe.title}</h1>
-      <p>{recipe.license}</p>
-      <h2>Ingredients</h2>
-      <ul>
-        {recipe.ingredients.map((ingredient, index) => (
-          <li key={index}>
-            {ingredient.quantity ? `${ingredient.quantity} ${ingredient.unit}` : ''} {ingredient.name}
-          </li>
-        ))}
-      </ul>
-      <h2>Preparation Steps</h2>
-      <ol>
-        {recipe.steps.map((step, index) => (
-          <li key={index}>{step}</li>
-        ))}
-      </ol>
-    </article>
+    <div className={styles.pageContainer}>
+      {/* Utiliser le composant RecipeDetailCard ici */}
+      <RecipeDetailCard recipe={recipe} />
+    </div>
   );
 }

@@ -37,11 +37,11 @@ const HeroSlider = () => {
         </div>
       ))}
       <div className="overlay"></div>
-      <div className="slider-text">
+      {/* <div className="slider-text">
         <h1>Welcome to Our Website</h1>
         <p>Your journey begins here. Explore our services.</p>
         <button className="cta-button">Get Started</button>
-      </div>
+      </div> */}
       <div className="controls">
         {slides.map((_, index) => (
           <span

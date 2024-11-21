@@ -245,7 +245,23 @@
 
 .recipeGrid {
   padding: 2rem;
+  /* border: 2px solid red; */
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: ; */
+  row-gap: 40px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.searchBar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+.filterBar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
+  grid-template-columns: repeat(3, 1fr);
 }

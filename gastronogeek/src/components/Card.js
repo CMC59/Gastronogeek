@@ -8,22 +8,27 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import Link from 'next/link'; // Importez le composant Link
+import Link from 'next/link';
+import styles from './Card.module.css';
+
+const truncateText = (text, maxLength) => {
+  return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+};
 
 export default function RecipeCard({ recipe }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card className={styles.Cardstyle} sx={{ width: 400, height: '100%', display: 'flex', flexDirection: 'column' }}>
       <CardMedia
         sx={{ height: 140 }}
-        image={recipe.images[0]} // Utilisez la première image de la recette
+        image={recipe.images[0]}
         title={recipe.title}
       />
-      <CardContent>
+      <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="div">
           {recipe.title}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {recipe.desc}
+          {truncateText(recipe.desc, 130)} {/* Truncate the description */}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           Temps de préparation : {recipe.prepTime}
@@ -33,10 +38,8 @@ export default function RecipeCard({ recipe }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Partager</Button>
-        {/* Utilisez Link pour renvoyer vers la page de la recette */}
         <Link href={`/recipeapi/${recipe.slug}`} passHref>
-          <Button size="small">Voir la recette</Button>
+          <Button size="medium">Voir la recette</Button>
         </Link>
         <IconButton aria-label="ajouter aux favoris">
           <FavoriteIcon />

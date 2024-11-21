@@ -9,10 +9,11 @@ const Header = () => {
                 {/* <Logo src="/images/Logo texte.png" alt="Logo" width={170} height={70} /> */}
             </div>
             <nav className={styles.nav}>
-                <Link href="/individualrecipe" className={styles.link}>Individual Recipe</Link>
-                <Link href="/recipeapi" className={styles.link}>API RECIPES</Link>
+                {/* <Link href="/individualrecipe" className={styles.link}>Individual Recipe</Link> */}
+                <Link href="/" className={styles.link}>Accueil</Link>
+                <Link href="/recipeapi" className={styles.link}>Voir les recettes</Link>
                 {/* <Link href="#anticiper" className={styles.link}></Link> */}
-                <Link href="/recipes" className={styles.links}>See all recipes</Link>
+                {/* <Link href="/recipes" className={styles.links}>See all recipes</Link> */}
             </nav>
         </header>
     );
