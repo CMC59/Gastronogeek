@@ -8,8 +8,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import Link from 'next/link';
 import styles from './Card.module.css';
+import TransitionLink from '@/components/TransitionLink';
 
 const truncateText = (text, maxLength) => {
   return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
@@ -38,9 +38,9 @@ export default function RecipeCard({ recipe }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link href={`/recipeapi/${recipe.slug}`} passHref>
+        <TransitionLink url={`/recipeapi/${recipe.slug}`} >
           <Button size="medium">Voir la recette</Button>
-        </Link>
+        </TransitionLink>
         <IconButton aria-label="ajouter aux favoris">
           <FavoriteIcon />
         </IconButton>

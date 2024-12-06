@@ -8,8 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import Link from 'next/link'; // Importez le composant Link
-
+import TransitionLink from '@/components/TransitionLink';
 export default function RecipeDetailCard({ recipe }) {
   return (
     <Card sx={{ maxWidth: 1200, margin: 'auto' }}> {/* Augmentez la largeur ici */}
@@ -84,9 +83,9 @@ export default function RecipeDetailCard({ recipe }) {
       <CardActions>
         {/* <Button size="small">Partager</Button> */}
         {/* Utilisez Link pour renvoyer vers la page de la recette */}
-        <Link href={`/recipeapi`} passHref>
+        <TransitionLink url={`/recipeapi`} >
           <Button size="small">Retour liste des recettes</Button>
-        </Link>
+        </TransitionLink>
       </CardActions>
     </Card>
   );
