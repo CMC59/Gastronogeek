@@ -34,7 +34,6 @@ export default function Home() {
 
   return (
     <div>
-      <Search /> {/* Call the Search component here */}
 
       <h2>Recettes aléatoires</h2>
       <div className={styles.recipeGrid}>

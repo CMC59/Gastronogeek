@@ -1,6 +1,8 @@
 // import localFont from "next/font/local";
 import "./globals.css";
 import Header from '../components/Header';
+import GSAP from "@/libs/GSAP";
+import PageTransition from "@/utils/PageTransition";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -22,8 +24,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={``}>
+        < PageTransition >
+        < GSAP >
       <Header />
         {children}
+        </GSAP>
+        </PageTransition>
       </body>
     </html>
   );
