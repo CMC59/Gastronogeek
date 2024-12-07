@@ -122,6 +122,7 @@ const Search = () => {
         >
           Réinitialiser
         </Button>
+
       </div>
 
       {renderSearchResults()}

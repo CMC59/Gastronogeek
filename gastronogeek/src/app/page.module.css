@@ -261,12 +261,20 @@
   gap: 1rem;
 }
 
+.resetButton {
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  height: 30px;
+  align-self: center;
+}
+
 .filterBar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-left: 3rem;
 }
+
 
 .searchComponent {
   position: relative;
