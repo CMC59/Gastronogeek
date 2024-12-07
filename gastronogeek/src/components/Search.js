@@ -116,6 +116,7 @@ const Search = () => {
         />
         <Button
           variant="outlined"
+          size="small"
           onClick={resetSearch}
           className={styles.resetButton}
         >

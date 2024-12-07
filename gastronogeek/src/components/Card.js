@@ -1,5 +1,6 @@
 'use client';
 import * as React from 'react';
+import { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -16,6 +17,12 @@ const truncateText = (text, maxLength) => {
 };
 
 export default function RecipeCard({ recipe }) {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavoriteClick = () => {
+    setIsFavorite((prev) => !prev);
+  };
+
   return (
     <Card className={styles.Cardstyle} sx={{ width: 400, height: '100%', display: 'flex', flexDirection: 'column' }}>
       <CardMedia
@@ -28,7 +35,7 @@ export default function RecipeCard({ recipe }) {
           {recipe.title}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {truncateText(recipe.desc, 130)} {/* Truncate the description */}
+          {truncateText(recipe.desc, 130)}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           Temps de préparation : {recipe.prepTime}
@@ -41,8 +48,11 @@ export default function RecipeCard({ recipe }) {
         <TransitionLink url={`/recipeapi/${recipe.slug}`} >
           <Button size="medium">Voir la recette</Button>
         </TransitionLink>
-        <IconButton aria-label="ajouter aux favoris">
-          <FavoriteIcon />
+        <IconButton 
+          aria-label="ajouter aux favoris"
+          onClick={handleFavoriteClick}
+        >
+          <FavoriteIcon color={isFavorite ? 'error' : 'inherit'} />
         </IconButton>
       </CardActions>
     </Card>

@@ -2,7 +2,6 @@
 
 import React, { forwardRef } from "react";
 import Image from "next/image";
-import hessImage from "@/assets/gastronogeek.png";
 import styles from "./Transition.module.css";
 
 const Transition = forwardRef((_, ref) => {
